@@ -39,8 +39,63 @@
         </nav>            
         </div>
 
-        <!-- <h1 class="display-3">Projects</h1>
-        <p>3 - 6 your best projects (quality over quantity)</p>
+        <h1 class="display-3">Projects</h1>
+        <div id="carousel" class="carousel carousel-dark slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+        <div class="card w-75 align-content-center align-items-center">
+            <img src="./assets/images/bookkeeper-screen.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">BookKeeper</h5>
+                <p class="card-text">A full-stack web app to manage and track your personal library. 
+            Users can sign up/Login, add books (with cover images fetched via ISBN/ASIN lookup),
+             mark reading status, search by title/author/genre, and filter their collection-built
+              as a learning project to master modern full-stack development.</p>
+            <a class="btn btn-primary" href="#bookkeeper">More info...</a>
+            </div>
+        </div>                    
+                </div>
+            </div>
+        </div>
+
+
+        <h1 class="display-2">More Information</h1>
+        <p id="bookkeeper">BookKeeper</p>
+        <hr />
+        <p>A full-stack web app to manage and track your personal library. 
+            Users can sign up/Login, add books (with cover images fetched via ISBN/ASIN lookup),
+             mark reading status, search by title/author/genre, and filter their collection—built
+              as a learning project to master modern full-stack development.
+        </p>
+        <p>Tech Stack</p>
+        <ul>
+            <li>Frontend: Frontend: React, React Router, Auth0 for authentication, Axios for HTTP, Bootstrap 5 for styling</li>
+            <li>Backend: Node.js with Express, MongoDB driver, JSON Web Tokens (JWT) for securing endpoints</li>
+            <li>DevOps & Testing: Docker & Docker-Compose for containerized local development, Jest & Supertest for API testing, Swagger (swagger-jsdoc + swagger-ui-express) for API docs</li>
+        </ul>
+        <p>Screenshots</p>
+        <p>Coming Soon...</p>
+        <p>GitHub Repo: github.com/jnycolej/BookKeeper</p>
+        <p>Live Demo Link (Coming Soon)</p>
+        <p>Case Study</p>
+        <ul>
+            <li>
+                Challenge 1: Integrating Auth0 for secure user authentication without compromising UX.
+                <br>Solution: Followed Auth0’s React SDK docs to implement login/signup flows and protected routes.
+                <br>What I Learned: OAuth fundamentals, handling auth state in React.
+            </li>
+            <li>
+                Challenge 2: Managing complex state for filtering/searching large lists in React.
+                <br>Solution: Lifted state into parent, used controlled components for filters, optimized re-renders with useMemo.
+                <br>What I Learned: Effective state management patterns and performance tuning in React.
+            </li>
+            <li>
+                Challenge 3: Containerizing a multi-service app for consistent local environments.
+                <br>Solution: Wrote a docker-compose.yml to spin up MongoDB, backend, and frontend in isolated containers.
+                <br>What I Learned: Basics of Docker networking, volumes, and orchestration.
+            </li>
+        </ul>
+        <!--<p>3 - 6 your best projects (quality over quantity)</p>
         <p>For each project</p>
         <ul>
             <li>Project Title & Short Description (What it does, why you built it...)</li>
