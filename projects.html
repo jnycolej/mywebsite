@@ -5,7 +5,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="assets/styles.css">
     </head>
-    <body id="content">
+    <body id="content" class="align-items-center">
         <div>
         <nav class="navbar fixed-top navbar-expand-lg">
             <div class="container-fluid">
@@ -40,25 +40,51 @@
         </div>
 
         <h1 class="display-3">Projects</h1>
-        <div id="carousel" class="carousel carousel-dark slide">
+        <div id="carousel-portfolio" class="carousel carousel-dark slide">
+            <!-- <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel-portfolio" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carousel-portfolio" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div> -->
             <div class="carousel-inner">
-                <div class="carousel-item active">
-        <div class="card w-75 align-content-center align-items-center">
-            <img src="./assets/images/bookkeeper-screen.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">BookKeeper</h5>
-                <p class="card-text">A full-stack web app to manage and track your personal library. 
-            Users can sign up/Login, add books (with cover images fetched via ISBN/ASIN lookup),
-             mark reading status, search by title/author/genre, and filter their collection-built
-              as a learning project to master modern full-stack development.</p>
-            <a class="btn btn-primary" href="#bookkeeper">More info...</a>
-            </div>
-        </div>                    
+                <div class="carousel-item active d-flex align-items-center justify-content-center" data-bs-interval="10000">
+                    <div class="card portfolio-card w-75 mx-auto">
+                        <img src="./assets/images/bookkeeper-screen.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">BookKeeper</h5>
+                            <p class="card-text">A full-stack web app to manage and track your personal library. 
+                                Users can sign up/Login, add books (with cover images fetched via ISBN/ASIN lookup),
+                                mark reading status, search by title/author/genre, and filter their collection-built
+                                as a learning project to master modern full-stack development.</p>
+                            <a class="btn btn-primary" href="#bookkeeper">More info...</a>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="carousel-item">
+                    <div class="card portfolio-card w-75 mx-auto">
+                        <img src="./assets/roulettelogo3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">SpotRoulette</h5>
+                            <p class="card-text">A multi-platform "place picker" that randomly 
+                                suggests venues (e.g., restaurants, cafes, parks) from a curated 
+                                collection based on user-selected categories and tags-built to 
+                                explore end-to-end TypeScript/Express APIs, a React web client, 
+                                and native mobile prototypes.</p>
+                            <a class="btn btn-primary" href="#spotroulette">More Info...</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-portfolio" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel-portfolio" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
 
-
+        <!-- BookKeeper information -->
         <h1 class="display-2">More Information</h1>
         <p id="bookkeeper">BookKeeper</p>
         <hr />
@@ -95,7 +121,52 @@
                 <br>What I Learned: Basics of Docker networking, volumes, and orchestration.
             </li>
         </ul>
-        <!--<p>3 - 6 your best projects (quality over quantity)</p>
+
+        <!--SpotRoulette-->
+        <p id="spotroulette">Spot Roulette</p>
+        <hr />
+        <p>A multi-platform “place picker” that randomly suggests venues 
+            (e.g., restaurants, cafés, parks) from a curated collection based 
+            on user-selected categories and tags—built to explore end-to-end 
+            TypeScript/Express APIs, a React web client, and native mobile prototypes.</p>
+        <p>Tech Stack</p>
+        <ul>
+            <li>Web Frontend: React (TypeScript), React Router, 
+                Axios for HTTP requests, CSS for styling</li>
+            <li>Backend: Node.js, Express.js, TypeScript, CORS; serves static JSON 
+                datasets for places & tags via custom /api/places and /api/tags routes</li>
+            <li>Dev Tools:  Git & GitHub for version control; 
+                npm & ts-node-dev for local development scripts</li>
+            <li>Mobile Prototypes (Archived): Android app in Kotlin; iOS app in Objective-C++</li>
+        </ul>
+        <p>Screenshots
+            <!--1. Web Home Screen - showing filter controls (type and tags)
+                2. Random Picker Result display
+                3. Mobile Prototype UI snippet (Android or iOS)
+            -->
+        </p>
+        <p>Coming Soon...</p>
+        <p>GitHub Repo: github.com/jnycolej/SpotRoulette</p>
+        <p>Live Demo Link (Coming Soon)</p>
+        <p>Case Study</p>
+        <ul>
+            <li>
+                Challenge 1: Designing a flexible, tag-based filter with “any” vs. “all” match modes.
+                <br>Solution: Built a reusable filterPlaces utility to combine type and tag filters dynamically.
+                <br>What I Learned: Functional programming patterns in TypeScript and robust API design.
+            </li>
+            <li>
+                Challenge 2: Serving location data without a full database.
+                <br>Solution: Used static JSON files (places.json, tags.json) and simple Express routes to mock production-style endpoints
+                <br>What I Learned: Trade-offs of prototyping with static vs. dynamic data sources.
+            </li>
+            <li>
+                Challenge 3: Rapidly prototyping cross-platform mobile experiences.
+                <br>Solution: Created early Android (Kotlin) and iOS (Objective-C++) demos to validate UX flows
+                <br>What I Learned: Foundations of mobile development workflows and platform differences.
+            </li>            
+        </ul>
+        <!--
         <p>For each project</p>
         <ul>
             <li>Project Title & Short Description (What it does, why you built it...)</li>
