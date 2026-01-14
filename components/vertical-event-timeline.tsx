@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Briefcase, Calendar, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Events } from "@/types/events";
+import type { Events } from "@/app/lib/types";
 // import { events } from "@/data/events";
 
 export default function VerticalEventTimeline() {
