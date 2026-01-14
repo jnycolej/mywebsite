@@ -4,8 +4,9 @@ const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
   images: {
-    domains: ['cdn.simpleicons.org'],
-  }
+    unoptimized: true,
+    remotePatterns: [{ protocol: "https", hostname: "cdn.simpleicons.org" }],
+  },
 };
 
 export default nextConfig;
