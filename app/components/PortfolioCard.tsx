@@ -1,5 +1,5 @@
 import { ProjectCard } from "../lib/types";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
@@ -8,83 +8,101 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
 type PortfolioCardProps = {
-    project: ProjectCard;
+  project: ProjectCard;
 };
 
-export default function PortfolioCard({project}: PortfolioCardProps) {
-    const { name, description, techStack, screenshots, github, liveDemo, caseStudy} = project;
-    
-    return (
-        <div id={`#${name}`}>
-            <Card className="w-full max-w-sm">
-                <CardHeader>
-                    <CardTitle>{name}</CardTitle>
-                    <CardDescription>{description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                                <p className="fw-semibold">Tech Stack</p>
+export default function PortfolioCard({ project }: PortfolioCardProps) {
+  const {
+    name,
+    category,
+    description,
+    techStack,
+    screenshots,
+    github,
+    liveDemo,
+    caseStudy,
+  } = project;
+
+  return (
+    <div id={`#${name}`}>
+      <Card className="mt-4">
+        <CardHeader>
+          <CardTitle className="font-bold p-2 text-2xl">{name}</CardTitle>
+          <CardDescription className="text-base">{description}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className=" text-xl font-semibold">Tech Stack</p>
+          <ul>
+            <li>
+              <strong>Frontend:</strong> {techStack.frontend.join(", ")}
+            </li>
+            <li>
+              <strong>Backend:</strong> {techStack.backend.join(", ")}
+            </li>
+            <li>
+              <strong>DevOps & Testing:</strong> {techStack.devOps.join(", ")}
+            </li>
+          </ul>
+
+          <p className="font-semibold mb-1">Screenshots</p>
+          {screenshots?.length ? (
             <ul>
-                <li><strong>Frontend:</strong> {techStack.frontend.join(", ")}</li>
-                <li><strong>Backend:</strong> {techStack.backend.join(", ")}</li>
-                <li><strong>DevOps & Testing:</strong> {techStack.devOps.join(", ")}</li>
+              {screenshots.map((src) => (
+                <li key={src}>{src}</li>
+              ))}
             </ul>
+          ) : (
+            <p>Coming Soon...</p>
+          )}
 
-            <p className="fw-semibold mb-1">Screenshots</p>
-            {screenshots?.length ? (
-                <ul>
-                    {screenshots.map((src) => (
-                        <li key={src}>{src}</li>
-                    ))}
-                </ul>
-            ) : (
-                <p>Coming Soon...</p>
-            )}
-
-            {github && (
-                <p>
-                    <strong>Github Repo:</strong>{" "}
-                    <a href={github} target="_blank" rel="noreferrer">
-                        {github}
-                    </a>
-                </p>
-            )}
-
+          {github && (
             <p>
-                <strong>Live Demo Link:</strong>{" "}
-                {liveDemo ? (
-                    <a href={liveDemo} target="_blank" rel="noreferrer">
-                        {liveDemo}
-                    </a>
-                ) : (
-                    "Coming Soon"
-                )}
+              <strong>Github Repo:</strong>{" "}
+              <a href={github} target="_blank" rel="noreferrer">
+                {github}
+              </a>
             </p>
+          )}
 
-            <p className="fw-semibold mb-1">Case Study</p>
-            <ul>
-                {caseStudy.map((item, idx) => (
-                    <li key={`${name}-case-${idx}`} className="mb-3">
-                        <strong>Challenge {idx + 1}:</strong> {item.challenge}
-                        <br />
-                        <strong>Solution:</strong> {item.solution}
-                        {item.whatILearned && (
-                            <>
-                                <br />
-                                <strong>What I Learned:</strong> {item.whatILearned}
-                            </>
-                        )}
-                    </li>
-                ))}
-            </ul>
-                </CardContent>
-            </Card>
-        </div>
-    );
+          <p>
+            <strong>Live Demo Link:</strong>{" "}
+            {liveDemo ? (
+              <a href={liveDemo} target="_blank" rel="noreferrer">
+                {liveDemo}
+              </a>
+            ) : (
+              "Coming Soon"
+            )}
+          </p>
+
+          <p className="font-semibold text-xl mb-1">Case Study</p>
+          <ul>
+            {caseStudy.map((item, idx) => (
+              <li key={`${name}-case-${idx}`} className="mb-3">
+                <strong>Challenge {idx + 1}:</strong> {item.challenge}
+                <br />
+                <strong>Solution:</strong> {item.solution}
+                {item.whatILearned && (
+                  <>
+                    <br />
+                    <strong>What I Learned:</strong> {item.whatILearned}
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+  );
 }
 
 function slugify(text: string) {
-    return text.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]/g, "");
+  return text
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]/g, "");
 }

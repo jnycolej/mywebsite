@@ -25,6 +25,7 @@ export type ProjectListObject = {
 
 export type ProjectCard = {
     name: string;
+    category: string;
     description: string;
     techStack: {
         frontend: string[],

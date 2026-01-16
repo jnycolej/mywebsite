@@ -5,6 +5,7 @@ export const projectIntroCardItems = [
     name: "SportsShuffle",
     src: "/sports-shuffle-logo.png",
     alt: "Sports Shuffle Logo",
+    category: "games",
     cardText:
       "A real-time, multiplayer sports-themed card game that lets players join shared rooms, draw randomized &quot;event&quot; cards, and compete for points.",
   },
@@ -12,12 +13,14 @@ export const projectIntroCardItems = [
     name: "BookKeeper",
     src: "/bookkeeper-screen.png",
     alt: "BookKeeper Logo",
+    category: "productivity",
     cardText: "A full-stack web app to manage and track your personal library.",
   },
   {
     name: "SpotRoulette",
     src: "/roulettelogo3.png",
     alt: "Spot Rouletee Logo",
+    category: "entertainment",
     cardText:
       "A multi-platform &quot;place picker&quot; that randomly suggests venues (e.g., restaurants, cafes, parks) from a curated collection based on user-selected categories an tags-built to explore end-to-end TypeScript/Express APIs, a React web client, and native mobile prototypes.",
   },
@@ -26,6 +29,7 @@ export const projectIntroCardItems = [
 export const projectcards: ProjectCards = [
   {
     name: "BookKeeper",
+    category: "productivity",
     description:
       "A full-stack web app to manage and track your personal library. Users can sign up/Login, add books (with cover images fetched via ISBN/ASIN lookup), mark reading status, search by title/author/genre, and filter their collection. Built as a learning project to master modern full-stack development.",
     techStack: {
@@ -70,6 +74,7 @@ export const projectcards: ProjectCards = [
   },
   {
     name: "SpotRoulette",
+    category: "entertainment",
     description:
       " A multi-platform &quot;place picker&quot; that randomly suggests venues (e.g., restaurants, cafes, parks) from a curated collection based on user-selected categories and tags-built to explore end-to-end TypeScript/Express APIs, a React web client, and native mobile prototypes.",
     techStack: {
@@ -122,6 +127,7 @@ export const projectcards: ProjectCards = [
   },
   {
     name: "SportsShuffle",
+    category: "games",
     description:
       "A real-time, multiplayer sports-themed game platform featuring card-based gameplay, trivia, and live score tracking. Players can join shared rooms, trigger game events, and compete during live sessions. Built as a learning project to explore real-time communication, game state management, and scalable backend architecture.",
     techStack: {
