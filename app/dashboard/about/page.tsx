@@ -1,6 +1,104 @@
 import { poppins, barlow } from "@/app/ui/fonts";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+
+import {
+  Item,
+  ItemContent,
+  ItemDescription,
+  ItemGroup,
+  ItemHeader,
+  ItemTitle,
+} from "@/components/ui/item";
+
 import VerticalEventTimeline from "@/app/ui/dashboard/about/verticaleventtimeline";
 import Image from "next/image";
+
+const skills = [
+  {
+    name: "Java",
+    description: "",
+    image: "/java-logo.svg",
+  },
+  {
+    name: "C",
+    description: "",
+    image: "https://cdn.simpleicons.org/c",
+  },
+  {
+    name: "Python",
+    description: "",
+    image: "https://cdn.simpleicons.org/python",
+  },
+  {
+    name: "SQL",
+    description: "",
+    image: "https://cdn.simpleicons.org/mysql",
+  },
+  {
+    name: "HTML",
+    description: "",
+    image: "https://cdn.simpleicons.org/html5",
+  },
+  {
+    name: "JavaScript",
+    description: "",
+    image: "https://cdn.simpleicons.org/javascript"
+  },
+  {
+    name: "React",
+    description: "",
+    image: "https://cdn.simpleicons.org/react" 
+  },
+  {
+    name: "Node.js",
+    description: "",
+    image: "https://cdn.simpleicons.org/nodedotjs"
+  },
+  {
+    name: "Docker",
+    description: "",
+    image: "https://cdn.simpleicons.org/docker"
+  },
+  {
+    name: "Jenkins",
+    description: "",
+    image: "https://cdn.simpleicons.org/jenkins"
+  },
+  {
+    name: "TailwindCSS",
+    description: "",
+    image: "https://cdn.simpleicons.org/tailwindcss"
+  },
+  {
+    name: "React Native",
+    description: "",
+    image: "https://cdn.simpleicons.org/react"
+  },
+  {
+    name: "MongoDB",
+    description: "",
+    image: "https://cdn.simpleicons.org/mongodb",
+  },
+  {
+    name: "Version Control (Git)",
+    description: "",
+    image: "https://cdn.simpleicons.org/git"
+  },
+  {
+    name: "Auth0",
+    description: "",
+    image: "https://cdn.simpleicons.org/auth0"
+  }
+];
 
 export default function Page() {
   return (
@@ -30,103 +128,29 @@ export default function Page() {
           through hands-on projects and real-world problem solving.
         </p>
       </div>
-      <div id="skills">
-        <p className="">Skills and Technologies</p>
-        <div className="">
-          <table className="text-center">
-            <tbody>
-              <tr>
-                <td>
+      <div className="pt-5" id="skills">
+        <p className="text-2xl text-center p-2 font-bold">Skills and Technologies</p>
+
+        <div className="flex w-full max-w-xl flex-col gap-6">
+          <ItemGroup className="grid grid-cols-3 gap-4">
+            {skills.map((skill) => (
+              <Item key={skill.name} variant="outline">
+                <ItemHeader>
                   <Image
-                    src="assets/images/java-logo.svg"
-                    width={50}
-                    height={50}
-                    alt="Java Logo"
+                    src={skill.image}
+                    alt={skill.name}
+                    width={100}
+                    height={100}
+                    className="aspect-square w-full rounded-sm object-cover"
                   />
-                  <br />
-                  Java
-                </td>
-                <td>
-                  <Image
-                    src="https://cdn.simpleicons.org/c"
-                    width={50}
-                    height={50}
-                    alt="C logo"
-                    unoptimized
-                  />
-                  <br />C
-                </td>
-                <td>
-                  <img src="https://cdn.simpleicons.org/python" width="50" />
-                  <br />
-                  Python
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="https://cdn.simpleicons.org/mysql" width="50" />
-                  <br />
-                  SQL
-                </td>
-                <td>
-                  <img src="https://cdn.simpleicons.org/html5" width="50" />
-                  <br />
-                  HTML
-                </td>
-                <td>
-                  <img
-                    src="https://cdn.simpleicons.org/javascript"
-                    width="50"
-                  />
-                  <br />
-                  JavaScript
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="https://cdn.simpleicons.org/react" width="50" />
-                  <br />
-                  React
-                </td>
-                <td>
-                  <img src="https://cdn.simpleicons.org/nodedotjs" width="50" />
-                  <br />
-                  Node.js
-                </td>
-                <td>
-                  <img src="https://cdn/simpleicons.org/docker" width="50" />
-                  <br />
-                  Docker
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <img src="https://cdn.simpleicons.org/jenkins" width="50" />
-                  <br />
-                  Jenkins
-                </td>
-                <td>
-                  <img src="https://cdn.simpleicons.org/react" width="50" />
-                  <br />
-                  React Native
-                </td>
-                <td>
-                  <img src="https://cdn.simpleicons.org/mongodb" width="50" />
-                  <br />
-                  MongoDB
-                </td>
-              </tr>
-              <tr>
-                <td>Object-oriented Development</td>
-                <td>
-                  <img src="https://cdn.simpleicons.org/git" width="50" />
-                  <br />
-                  Version Control (GIT)
-                </td>
-                <td>Problem Solving</td>
-              </tr>
-            </tbody>
-          </table>
+                </ItemHeader>
+                <ItemContent>
+                  <ItemTitle>{skill.name}</ItemTitle>
+                  <ItemDescription>{skill.description}</ItemDescription>
+                </ItemContent>
+              </Item>
+            ))}
+          </ItemGroup>
         </div>
       </div>
       <VerticalEventTimeline />
