@@ -44,7 +44,7 @@ export default function Page() {
       </div>
       <div className="text-center">
         <Button asChild>
-          <Link className="" href="/JenniferJosephResume.pdf">
+          <Link className="" href="/JenniferJosephResume2026.pdf">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
