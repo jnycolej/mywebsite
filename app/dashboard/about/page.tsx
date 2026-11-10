@@ -1,159 +1,167 @@
-import { poppins, barlow } from "@/app/ui/fonts";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-
-import {
-  Item,
-  ItemContent,
-  ItemDescription,
-  ItemGroup,
-  ItemHeader,
-  ItemTitle,
-} from "@/components/ui/item";
-
-import VerticalEventTimeline from "@/app/ui/dashboard/about/verticaleventtimeline";
-import Image from "next/image";
-
-const skills = [
+import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowUpRight, Code2, Box, BookOpen, CircleDot } from "lucide-react";
+import ArchitecturalArt from "@/app/components/ArchitecturalArt";
+import { events } from "@/app/lib/timelineData";
+export const metadata: Metadata = { title: "About" };
+const skillGroups = [
   {
-    name: "Java",
-    description: "",
-    image: "/java-logo.svg",
+    title: "Languages",
+    skills: [
+      "TypeScript",
+      "JavaScript",
+      "Python",
+      "Java",
+      "C",
+      "SQL",
+      "HTML",
+      "CSS",
+    ],
   },
   {
-    name: "C",
-    description: "",
-    image: "https://cdn.simpleicons.org/c",
+    title: "Applications",
+    skills: [
+      "React",
+      "Next.js",
+      "React Native",
+      "Node.js",
+      "Express",
+      "Tailwind CSS",
+    ],
   },
   {
-    name: "Python",
-    description: "",
-    image: "https://cdn.simpleicons.org/python",
+    title: "Data & delivery",
+    skills: [
+      "MongoDB",
+      "Auth0",
+      "Socket.IO",
+      "Docker",
+      "Jenkins",
+      "Git & GitHub",
+    ],
   },
-  {
-    name: "SQL",
-    description: "",
-    image: "https://cdn.simpleicons.org/mysql",
-  },
-  {
-    name: "HTML",
-    description: "",
-    image: "https://cdn.simpleicons.org/html5",
-  },
-  {
-    name: "JavaScript",
-    description: "",
-    image: "https://cdn.simpleicons.org/javascript"
-  },
-  {
-    name: "React",
-    description: "",
-    image: "https://cdn.simpleicons.org/react" 
-  },
-  {
-    name: "Node.js",
-    description: "",
-    image: "https://cdn.simpleicons.org/nodedotjs"
-  },
-  {
-    name: "Docker",
-    description: "",
-    image: "https://cdn.simpleicons.org/docker"
-  },
-  {
-    name: "Jenkins",
-    description: "",
-    image: "https://cdn.simpleicons.org/jenkins"
-  },
-  {
-    name: "TailwindCSS",
-    description: "",
-    image: "https://cdn.simpleicons.org/tailwindcss"
-  },
-  {
-    name: "React Native",
-    description: "",
-    image: "https://cdn.simpleicons.org/react"
-  },
-  {
-    name: "MongoDB",
-    description: "",
-    image: "https://cdn.simpleicons.org/mongodb",
-  },
-  {
-    name: "Version Control (Git)",
-    description: "",
-    image: "https://cdn.simpleicons.org/git"
-  },
-  {
-    name: "Auth0",
-    description: "",
-    image: "https://cdn.simpleicons.org/auth0"
-  }
 ];
-
-export default function Page() {
+export default function AboutPage() {
   return (
-    <div>
-      <div>
-        <h1 className="text-5xl mb-4 text-center">About me</h1>
-        <hr />
-        <p className="text-base poiret-one-regular">
-          &emsp;{" "}
-          <strong>
-            My path to software development began with a love for building.{" "}
-          </strong>
-          From Legos to simulation games, I was always more interested in
-          designing systems and environments than simply using them. That
-          curiosity led me to initially study architecture, where I learned to
-          think abstractly and solve problems creatively. <br />
+    <>
+      <div className="page-heading heading-red">
+        <h1>About</h1>
+        <p>
+          My story.
           <br />
-          &emsp; <strong>I soon realized,</strong> however, that I wanted fewer
-          constraints and more freedom to build. So, I transitioned into
-          computer science. What started as an interest in game development
-          evolved into a deeper passion for software design, particularly on the
-          backend. I enjoy identifying problems, designing scalable solutions,
-          and bringing ideas to life through clean, intentional code. <br />{" "}
+          My path.
           <br />
-          &emsp; <strong>Today,</strong> I approach software development as both
-          a craft and a creative process, continuously refining my skills
-          through hands-on projects and real-world problem solving.
+          And what drives me.
         </p>
       </div>
-      <div className="pt-5" id="skills">
-        <p className="text-2xl text-center p-2 font-bold">Skills and Technologies</p>
-
-        <div className="flex w-full max-w-xl flex-col gap-6">
-          <ItemGroup className="grid grid-cols-3 gap-4">
-            {skills.map((skill) => (
-              <Item key={skill.name} variant="outline">
-                <ItemHeader>
-                  <Image
-                    src={skill.image}
-                    alt={skill.name}
-                    width={100}
-                    height={100}
-                    className="aspect-square w-full rounded-sm object-cover"
-                  />
-                </ItemHeader>
-                <ItemContent>
-                  <ItemTitle>{skill.name}</ItemTitle>
-                  <ItemDescription>{skill.description}</ItemDescription>
-                </ItemContent>
-              </Item>
-            ))}
-          </ItemGroup>
+      <section className="about-intro">
+        <ArchitecturalArt compact />
+        <div>
+          <span className="eyebrow">Built on curiosity</span>
+          <h2>
+            From architecture
+            <br />
+            to computer science.
+          </h2>
+          <p>
+            My path to software development began with a love for building. From
+            Legos to simulation games, I was always more interested in designing
+            systems and environments than simply using them.
+          </p>
+          <p>
+            That curiosity led me to architecture, where I learned to think
+            abstractly and solve problems creatively. I eventually found a new
+            medium in computer science: a way to build, iterate, and bring ideas
+            to life through code.
+          </p>
+          <p>
+            Today, I’m especially drawn to backend development—the logic, data,
+            and systems that make an application work. I bring that same care to
+            the full experience.
+          </p>
+          <a className="text-link" href="/JenniferJosephResume2026.pdf">
+            View my résumé <ArrowUpRight size={22} />
+          </a>
         </div>
+      </section>
+      <section className="about-now">
+        <h2 className="eyebrow">Now</h2>
+        <p>
+          I’m a software engineer with a B.S. in Computer Science from the
+          University of New Orleans, building full-stack projects and continuing
+          to learn through hands-on problem solving.
+        </p>
+      </section>
+      <section className="interests">
+        <h2 className="eyebrow">
+          A few things
+          <br />I love
+        </h2>
+        {[
+          { label: "Coding", icon: Code2 },
+          { label: "Design", icon: Box },
+          { label: "Reading", icon: BookOpen },
+          { label: "Sports", icon: CircleDot },
+        ].map(({ label, icon: Icon }) => (
+          <div key={label}>
+            <Icon strokeWidth={1.25} />
+            <span>{label}</span>
+          </div>
+        ))}
+      </section>
+      <section className="skills-section" id="skills">
+        <div className="section-label">
+          <h2>Tools of the trade</h2>
+          <span>Always learning</span>
+        </div>
+        <div className="skills-grid">
+          {skillGroups.map((group) => (
+            <div key={group.title}>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.skills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+      <section className="journey">
+        <div className="section-label">
+          <h2>The path here</h2>
+          <span>Architecture → software</span>
+        </div>
+        <details>
+          <summary>
+            Explore my education & project timeline{" "}
+            <span aria-hidden="true">+</span>
+          </summary>
+          <ol>
+            {events.map((event, index) => (
+              <li key={`${event.year}-${index}`}>
+                <span>{event.year}</span>
+                <div>
+                  <h3>{event.heading}</h3>
+                  {event.events.length > 0 && (
+                    <ul>
+                      {event.events.map((detail) => (
+                        <li key={detail.title}>{detail.title}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </details>
+      </section>
+      <div className="home-contact">
+        <p>Curious about what I’m building?</p>
+        <Link href="/dashboard/projects">
+          Explore the work. <ArrowUpRight />
+        </Link>
       </div>
-      <VerticalEventTimeline />
-    </div>
+    </>
   );
 }

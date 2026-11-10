@@ -1,57 +1,85 @@
-import Image from "next/image";
-import Link
- from "next/link";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import ArchitecturalArt from "./components/ArchitecturalArt";
+import ProjectSymbol from "./components/ProjectSymbol";
+import {featuredProjects} from "./lib/portfolio";
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col bg-background items-center justify-between py-32 px-16 dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/1.png"
-          alt="Next.js logo"
-          width={300}
-          height={300}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Jennifer Joseph
+    <>
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-heading">
+          <h1 id="hero-title">
+            Jennifer <br /> Joseph
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Software Engineer
+          <p className="hero-role">
+            Software engineer / <br />
+            Full-Stack developer
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <Link
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href={`/dashboard/projects`}
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Projects
-          </Link>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href={`/dashboard/about`}
-            rel="noopener noreferrer"
-          >
-            Skills
-          </a>
-          <Link
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href={`/dashboard/contact`}
-            rel="noopener noreferrer"
-          >
-            Contact Me
+        <div className="hero-bottom">
+          <div className="hero-intro">
+            <span className="eyebrow">A builder at heart</span>
+            <p>
+              I build thoughtful, full-stack applications that solve real problems and create engaging experiences.
+            </p>
+            <Link className="action-button" href="/dashboard/projects">
+              View my work <ArrowRight size={24} />
+            </Link>
+            <span className="hero-coordinate">
+              CREATIVE THINKING. INTENTIONAL CODE.
+            </span>
+          </div>
+          <ArchitecturalArt />
+        </div>
+      </section>
+      <section className="featured" aria-labelledby="featured-title">
+        <div className="section-label">
+          <h2 id="featured-title">Featured projects</h2>
+          <span>03 selected works</span>
+        </div>
+        <div className="featured-grid">
+          {featuredProjects.map((project) => (
+            <Link
+              className={`feature-card tone-${project.color}`}
+              key={project.id}
+              href={`/dashboard/projects#${project.id}`}
+            >
+              <span className="eyebrow">
+                {project.label} / {project.category}
+              </span>
+              <ProjectSymbol name={project.name} />
+              <h3>{project.title}</h3>
+              <p>{project.summary}</p>
+              <ArrowUpRight className="card-arrow" size={28} />
+              <span className="sr-only">Explore {project.title}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <section className="manifesto">
+        <span className="manifesto-shape" aria-hidden="true" />
+        <div>
+          <span className="eyebrow">A different perspective</span>
+          <h2>
+            Architecture
+            <br /> shaped how I <br />
+            see problems<span>-</span>
+          </h2>
+        </div>
+        <div className="manifesto-note">
+          <p>Now I solve them <br /> with code.</p>
+          <Link className="text-link" href="/dashboard/about">
+            The story so far <ArrowUpRight size={22} />
           </Link>
         </div>
-      </main>
-    </div>
-  );
+      </section>
+      <section className="home-contact">
+        <p>Have something in mind?</p>
+        <Link href="/dashboard/contact">
+          Let's build it. <ArrowUpRight />
+        </Link>
+      </section>
+    </>
+  )
 }

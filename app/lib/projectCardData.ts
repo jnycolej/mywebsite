@@ -31,14 +31,14 @@ export const projectcards: ProjectCards = [
     name: "BookKeeper",
     category: "productivity",
     description:
-      "A full-stack web app to manage and track your personal library. Users can sign up/Login, add books (with cover images fetched via ISBN/ASIN lookup), mark reading status, search by title/author/genre, and filter their collection. Built as a learning project to master modern full-stack development.",
+      "A full-stack web app to manage and track your personal library. Users can sign up/Login, add books, movies, tv shows, and videos games. Users can also mark status, search by title/author/genre, and filter their collection. Built as a learning project to master modern full-stack development.",
     techStack: {
       frontend: [
         "React",
         "React Router",
         "Auth0 for Authentication",
         "Axios for HTTP",
-        "Bootstrap 5 for styling",
+        "TailwindCSS",
       ],
       backend: [
         "Node.js with Express",
@@ -51,15 +51,21 @@ export const projectcards: ProjectCards = [
         "Swagger (swagger-jsdoc + swagger-ui-express) for API docs",
       ],
     },
-    screenshots: [],
-    github: "",
+       screenshots: [
+      "/bookkeeper-book-detail-page-screenshot-1.png",
+      "/bookkeeper-book-form-screenshot-1.png",
+      "/bookkeeper-library-screenshot-1.png",
+      "/bookkeeper-library-screenshot-2.png",
+      "/bookkeeper-movie-detail-page-screenshot-1.png",
+    ],
+    github: "https://github.com/jnycolej/BookKeeper",
     liveDemo: "",
     caseStudy: [
       {
         challenge:
           "Integrating Auth0 for secure user authentication without compromising UX.",
         solution:
-          "Followed Auth0&apos;s React SDK docs to implement login/signup flows and protected routes.",
+          "Followed Auth0's React SDK docs to implement login/signup flows and protected routes.",
         whatILearned: "OAuth fundamentals, handling auth state in React.",
       },
       {
@@ -69,6 +75,12 @@ export const projectcards: ProjectCards = [
           "Lifted state into parent, used controlled components for filters, optimized re-renders with useMemo.",
         whatILearned:
           "Effective state management patterns and performance tuning in React.",
+      },
+      {
+        challenge:
+          "Refactoring code to prevent bloat as the app expands to tracking more versions of media instead of just books.",
+        solution:
+          "Restructed the app to remove code that was reused by multiple files to create global components that all the media types can share.",
       },
     ],
   },
@@ -131,14 +143,15 @@ export const projectcards: ProjectCards = [
     description:
       "A real-time, multiplayer sports-themed game platform featuring card-based gameplay, trivia, and live score tracking. Players can join shared rooms, trigger game events, and compete during live sessions. Built as a learning project to explore real-time communication, game state management, and scalable backend architecture.",
     techStack: {
-      frontend: ["React", "JavaScript", "HTML", "CSS"],
+      frontend: ["React", "JavaScript", "HTML", "CSS", "TailwindCSS"],
       backend: [
         "Node.js with Express",
         "Socket.IO for real-time communication",
       ],
       devOps: ["Heroku for deployment", "GitHub for version control"],
     },
-    screenshots: [],
+    screenshots: [
+    ],
     github: "https://github.com/jnycolej/GamesApp",
     liveDemo: "",
     caseStudy: [
