@@ -59,7 +59,7 @@ export const projectcards: ProjectCards = [
       "/bookkeeper-movie-detail-page-screenshot-1.png",
     ],
     github: "https://github.com/jnycolej/BookKeeper",
-    liveDemo: "",
+    liveDemo: "https://bookkeeper-app.com",
     caseStudy: [
       {
         challenge:
@@ -153,7 +153,7 @@ export const projectcards: ProjectCards = [
     screenshots: [
     ],
     github: "https://github.com/jnycolej/GamesApp",
-    liveDemo: "",
+    liveDemo: "https://sports-shuffle.com",
     caseStudy: [
       {
         challenge:
